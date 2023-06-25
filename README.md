@@ -10,6 +10,9 @@ sh <(curl -L https://nixos.org/nix/install)
 ```
 
 Select all defaults.
+
+----
+
 </details>
 
 
@@ -22,6 +25,9 @@ nix run home-manager/master -- init --switch
 
 This will create your `~/.config/home-manager`, you can delete it and checkout
 the content of this repo.
+
+----
+
 </details>
 
 - Checkout this folder in `~/.config/home-manager`.
