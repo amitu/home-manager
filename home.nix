@@ -22,6 +22,9 @@
     # # "Hello, world!" when run.
     # pkgs.hello
     pkgs.bottom
+    pkgs.fish
+    pkgs.heroku
+    pkgs.thefuck
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -65,6 +68,31 @@
   home.sessionVariables = {
     # EDITOR = "emacs";
   };
+
+  programs.zsh = {
+    enable = true;
+    enableAutosuggestions = true;
+    enableCompletion = true;
+    shellAliases = {
+      hm = "home-manager switch";
+      hmu = "nix-channel --update && home-manager switch";
+    };
+    initExtra = ''
+      . "$HOME/.cargo/env"
+      export WASMTIME_HOME="$HOME/.wasmtime"
+      export PATH="$WASMTIME_HOME/bin:$PATH:$HOME/bin"
+      export PATH=$PATH:"/Applications/Sublime Text.app/Contents/SharedSupport/bin"
+    '';
+    oh-my-zsh = {
+      enable = true;
+      plugins = [ "git" "thefuck" ];
+      theme = "robbyrussell";
+    };
+  };
+
+
+  programs.direnv.enable = true;
+  programs.direnv.nix-direnv.enable = true;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

@@ -30,8 +30,10 @@ the content of this repo.
 
 </details>
 
+- Note: do not install nix-darwin
 - Checkout this folder in `~/.config/home-manager`.
 - Run `home-manager switch`
+- Run `nix-channel --update && home-manager switch` to update `home-manager`.
 
 
 
