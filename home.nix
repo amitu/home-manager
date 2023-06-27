@@ -74,6 +74,7 @@
     enableAutosuggestions = true;
     enableCompletion = true;
     shellAliases = {
+      f = "fuck";
       hm = "home-manager switch";
       hmu = "nix-channel --update && home-manager switch";
     };
