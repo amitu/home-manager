@@ -7,8 +7,7 @@
 
   nixpkgs = {
     config = {
-      allowUnfree = true;
-      allowUnfreePredicate = (_: true);
+      # permittedUnfreePackages = [ "vscode" ];
     };
   };
 
@@ -16,12 +15,11 @@
     bottom
     thefuck
     ripgrep
-    devbox
+    # devbox : Decided not to use it
     bat
     rustup
-    # postgresql
+    postgresql
     # vscode
-    # broot
     git
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
@@ -53,6 +51,15 @@
     # '';
   };
 
+  programs.neovim = {
+    enable = true;
+    vimAlias = true;
+    viAlias = true;
+    extraConfig = ''
+      set number relativenumber
+    '';
+  };
+
   # You can also manage environment variables but you will have to manually
   # source
   #
@@ -64,7 +71,7 @@
   #
   # if you don't want to manage your shell through Home Manager.
   home.sessionVariables = {
-    # EDITOR = "emacs";
+    EDITOR = "nvim";
   };
 
   programs.zoxide = {
