@@ -12,7 +12,9 @@ in {
 
   nixpkgs = {
     config = {
-      # permittedUnfreePackages = [ "vscode" ];
+      allowUnfree = true;
+      allowUnfreePredicate = (_: true);
+      # permittedUnfreePackages = [ "vscode-1.79.2" ];
     };
   };
 
@@ -24,8 +26,9 @@ in {
     bat
     rustup
     postgresql
-    # vscode
     nixfmt
+    tig
+    tokei
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the

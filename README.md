@@ -58,3 +58,12 @@ Run `hmu` to update everything.
 
 https://saurabhs.org/advanced-macos-commands
 
+## Tig Shortcuts
+
+Use tig!
+
+https://jonas.github.io/tig/doc/manual.html
+
+## Nix Garbage Collection
+
+`nix-collect-garbage -d`

@@ -15,7 +15,12 @@
       system = "aarch64-darwin";
       pkgs = nixpkgs.legacyPackages.${system};
     in {
-      homeConfigurations."amitu" = home-manager.lib.homeManagerConfiguration {
+
+      # tried both, (one by one), but Spotlight still doesnt show them
+      # home-manager.modules.targets.darwin.installApps = true;
+      home-manager.modules.targets.darwin.fullCopies = true;
+
+      homeConfigurations."amitu@AmitUs-Macbook" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
         # Specify your home configuration modules here, for example,
