@@ -1,7 +1,10 @@
 { config, pkgs, ... }:
-
-{
+let
+  my-email = "upadhyay@gmail.com";
+  my-name = "Amit Upadhyay";
+in {
   home.username = "amitu";
+
   home.homeDirectory = "/Users/${config.home.username}";
   home.stateVersion = "23.05"; # Please read the comment before changing.
 
@@ -20,7 +23,7 @@
     rustup
     postgresql
     # vscode
-    git
+    nixfmt
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -70,8 +73,8 @@
 
   programs.git = {
     enable = true;
-    userName = "Amit Upadhyay";
-    userEmail = "upadhyay@gmail.com";
+    userName = my-name;
+    userEmail = my-email;
     extraConfig = {
       push.autoSetupRemote = true;
       init.defaultBranch = "main";
@@ -90,18 +93,14 @@
   #  /etc/profiles/per-user/amitu/etc/profile.d/hm-session-vars.sh
   #
   # if you don't want to manage your shell through Home Manager.
-  home.sessionVariables = {
-    EDITOR = "nvim";
-  };
+  home.sessionVariables = { EDITOR = "nvim"; };
 
   programs.zoxide = {
     enable = true;
     enableZshIntegration = true;
   };
 
-  programs.broot = {
-    enable = true;
-  };
+  programs.broot = { enable = true; };
 
   programs.zsh = {
     enable = true;
@@ -126,7 +125,6 @@
       theme = "robbyrussell";
     };
   };
-
 
   programs.direnv.enable = true;
   programs.direnv.nix-direnv.enable = true;
