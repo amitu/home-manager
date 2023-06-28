@@ -36,4 +36,20 @@ the content of this repo.
 - Run `nix-channel --update && home-manager switch` to update `home-manager`.
 
 
+# Manual
 
+## `z`
+
+Use `z <pattern>` to cd into folders ("zip around"). `zi <pattern>` to run
+interactive search for pattern. Or `z <pattern><SPACE><TAB>` to run interactive
+search.
+
+## `f`
+
+If you make a minor command error, running `f` can figure out a fixed command.
+
+## `hm` & `hmu`
+
+After modifying `home-manager` files, run `hm` from anywhere to apply changes.
+
+Run `hmu` to update everything.
