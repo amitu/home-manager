@@ -19,8 +19,9 @@
     devbox
     bat
     rustup
-    postgresql
-    vscode
+    # postgresql
+    # vscode
+    # broot
     git
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
@@ -71,6 +72,10 @@
     enableZshIntegration = true;
   };
 
+  programs.broot = {
+    enable = true;
+  };
+
   programs.zsh = {
     enable = true;
     enableAutosuggestions = true;
@@ -78,8 +83,9 @@
     shellAliases = {
       cat = "bat";
       f = "fuck";
-      hm = "home-manager switch";
-      hmu = "nix-channel --update && home-manager switch";
+      hm = "home-manager switch && exec zsh";
+      zhm = "z ~/.config/home-manager";
+      hmu = "nix-channel --update && home-manager switch && exec zsh";
     };
     initExtra = ''
       . "$HOME/.cargo/env"
