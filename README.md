@@ -53,3 +53,8 @@ If you make a minor command error, running `f` can figure out a fixed command.
 After modifying `home-manager` files, run `hm` from anywhere to apply changes.
 
 Run `hmu` to update everything.
+
+## Mac Utils
+
+https://saurabhs.org/advanced-macos-commands
+

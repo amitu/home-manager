@@ -3,10 +3,12 @@ let
   my-email = "upadhyay@gmail.com";
   my-name = "Amit Upadhyay";
 in {
-  home.username = "amitu";
 
-  home.homeDirectory = "/Users/${config.home.username}";
-  home.stateVersion = "23.05"; # Please read the comment before changing.
+  home = {
+    username = "amitu";
+    homeDirectory = "/Users/${config.home.username}";
+    stateVersion = "23.05"; # Please read the comment before changing.
+  };
 
   nixpkgs = {
     config = {
@@ -79,6 +81,11 @@ in {
       push.autoSetupRemote = true;
       init.defaultBranch = "main";
       pull.rebase = true;
+      url = {
+        "git@github.com:" = {
+          insteadOf = "https://github.com/";
+        };
+      };
     };
     diff-so-fancy.enable = true;
   };
