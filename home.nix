@@ -2,7 +2,7 @@
 
 {
   home.username = "amitu";
-  home.homeDirectory = "/Users/amitu";
+  home.homeDirectory = "/Users/${config.home.username}";
   home.stateVersion = "23.05"; # Please read the comment before changing.
 
   nixpkgs = {
@@ -56,8 +56,28 @@
     vimAlias = true;
     viAlias = true;
     extraConfig = ''
+      set number
       set number relativenumber
     '';
+    plugins = with pkgs.vimPlugins; [
+      ctrlp
+      nerdtree
+      tabular
+      vim-nix
+      vim-markdown
+    ];
+  };
+
+  programs.git = {
+    enable = true;
+    userName = "Amit Upadhyay";
+    userEmail = "upadhyay@gmail.com";
+    extraConfig = {
+      push.autoSetupRemote = true;
+      init.defaultBranch = "main";
+      pull.rebase = true;
+    };
+    diff-so-fancy.enable = true;
   };
 
   # You can also manage environment variables but you will have to manually
