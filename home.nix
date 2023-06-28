@@ -5,14 +5,23 @@
   home.homeDirectory = "/Users/amitu";
   home.stateVersion = "23.05"; # Please read the comment before changing.
 
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+      allowUnfreePredicate = (_: true);
+    };
+  };
+
   home.packages = with pkgs; [
     bottom
-    fish
-    heroku
     thefuck
     ripgrep
     devbox
     bat
+    rustup
+    postgresql
+    vscode
+    git
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
