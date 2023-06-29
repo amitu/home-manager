@@ -150,6 +150,8 @@ in {
     enable = true;
     settings = {
       line_break.disabled = true;
+      add_newline = false;
+
       git_status.stashed = "";
       python.disabled = true;
       nix_shell.disabled = true;
