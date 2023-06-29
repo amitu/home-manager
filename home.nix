@@ -31,6 +31,7 @@ in {
     tokei
     youtube-dl
     zellij
+    difftastic
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -86,13 +87,13 @@ in {
       push.autoSetupRemote = true;
       init.defaultBranch = "main";
       pull.rebase = true;
+      diff.external = "difft";
       url = {
         "git@github.com:" = {
           insteadOf = "https://github.com/";
         };
       };
     };
-    diff-so-fancy.enable = true;
   };
 
   # You can also manage environment variables but you will have to manually
