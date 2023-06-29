@@ -148,7 +148,10 @@ in {
   programs.starship = {
     enable = true;
     settings = {
-      add_newline = false;
+      line_break.disabled = true;
+      git_status.stashed = "";
+      python.disabled = true;
+      nix_shell.disabled = true;
 
       cmd_duration = {
         min_time = 0;
