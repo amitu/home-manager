@@ -150,6 +150,11 @@ in {
     settings = {
       add_newline = false;
 
+      cmd_duration = {
+        min_time = 0;
+        show_milliseconds = true;
+      };
+
       character = {
         success_symbol = "[➜](bold green)";
         error_symbol = "[➜](bold red)";
