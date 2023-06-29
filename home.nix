@@ -29,6 +29,8 @@ in {
     nixfmt
     tig
     tokei
+    youtube-dl
+    zellij
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -103,7 +105,11 @@ in {
   #  /etc/profiles/per-user/amitu/etc/profile.d/hm-session-vars.sh
   #
   # if you don't want to manage your shell through Home Manager.
-  home.sessionVariables = { EDITOR = "nvim"; };
+  home.sessionVariables = {
+    EDITOR = "nvim";
+    SPACESHIP_EXEC_TIME_ELAPSED=1;
+    SPACESHIP_EXEC_TIME_PRECISION=3;
+  };
 
   programs.zoxide = {
     enable = true;
@@ -138,6 +144,18 @@ in {
 
   programs.direnv.enable = true;
   programs.direnv.nix-direnv.enable = true;
+
+  programs.starship = {
+    enable = true;
+    settings = {
+      add_newline = false;
+
+      character = {
+        success_symbol = "[➜](bold green)";
+        error_symbol = "[➜](bold red)";
+      };
+    };
+  };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

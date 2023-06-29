@@ -16,7 +16,7 @@
       pkgs = nixpkgs.legacyPackages.${system};
     in {
 
-      # tried both, (one by one), but Spotlight still doesnt show them
+      # tried both, (one by one), but Spotlight still doesn't show them
       # home-manager.modules.targets.darwin.installApps = true;
       home-manager.modules.targets.darwin.fullCopies = true;
 
