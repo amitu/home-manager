@@ -152,7 +152,13 @@ in {
       line_break.disabled = true;
       add_newline = false;
 
-      git_status.stashed = "";
+      git_status = {
+        stashed = "";
+        ahead = "⇡\${count}";
+        diverged = "⇕⇡\${ahead_count}⇣\${behind_count}";
+        behind = "⇣\${count}";
+      };
+
       python.disabled = true;
       nix_shell.disabled = true;
 
