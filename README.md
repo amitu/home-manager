@@ -38,6 +38,48 @@ the content of this repo.
 
 # Manual
 
+## Fixing Nix After OSX Update
+
+OSX update can nuke mounts.
+
+```sh
+/usr/sbin/diskutil list | grep Nix
+   7:                APFS Volume Nix Store               6.0 GB     disk3s7
+```
+
+The last bit, `disk3s7` is the "disk identifier".
+
+```sh
+/usr/sbin/diskutil info disk3s7
+```
+
+Gives us the Volume UUID. Which has to be used in `/etc/fstab`:
+
+```sh
+cat /etc/fstab
+#
+# Warning - this file should only be modified with vifs(8)
+#
+# Failure to do so is unsupported and may be destructive.
+#
+
+# nix-installer created volume labelled `Nix Store`
+UUID=75DA38CE-DEAD-486E-9A3D-1F61DBFAB14D /nix apfs rw,noauto,nobrowse,suid,owners
+```
+
+Also ensure:
+
+```sh
+cat /etc/synthetic.conf
+run private/var/run
+nix
+```
+
+And reboot.
+
+Then locate the volume in Disk Utility, and mount it. Looks like we have to do
+this on every reboot.
+
 ## `z`
 
 Use `z <pattern>` to cd into folders ("zip around"). `zi <pattern>` to run
@@ -88,6 +130,9 @@ Currently user data is hard coded in home.nix, meaning others can not use this
 setup. Have to figure out how to pass data to imports.
 
 https://github.com/the-nix-way/nome/blob/main/home-manager/default.nix
+https://github.com/thexyno/nixos-config/blob/main/flake.nix
+https://xyno.space/post/nix-darwin-introduction
+https://gist.github.com/jmatsushita/5c50ef14b4b96cb24ae5268dab613050
 
 
 ## More Mac Settings
