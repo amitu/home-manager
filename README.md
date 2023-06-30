@@ -81,3 +81,16 @@ nix-shell -p nix-info --run "nix-info -m"
  - channels(root): `"nixpkgs"`
  - nixpkgs: `/nix/var/nix/profiles/per-user/root/channels/nixpkgs`
 ```
+
+## Passing User Data
+
+Currently user data is hard coded in home.nix, meaning others can not use this
+setup. Have to figure out how to pass data to imports.
+
+https://github.com/the-nix-way/nome/blob/main/home-manager/default.nix
+
+
+## More Mac Settings
+
+Looks like a lot of mac settings can be configured using nix: https://medium.com/@zmre/nix-darwin-quick-tip-activate-your-preferences-f69942a93236.
+Have not yet tried them.

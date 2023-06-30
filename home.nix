@@ -162,6 +162,7 @@ in {
       };
 
       python.disabled = true;
+      package.disabled = true;
       nodejs.disabled = true;
       rust.disabled = true;
       nix_shell.disabled = true;
