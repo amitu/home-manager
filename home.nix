@@ -32,6 +32,8 @@ in {
     youtube-dl
     zellij
     difftastic
+    # Set Terminal.app Font to Fira etc: especially for starship special prompts
+    (pkgs.nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -160,6 +162,8 @@ in {
       };
 
       python.disabled = true;
+      nodejs.disabled = true;
+      rust.disabled = true;
       nix_shell.disabled = true;
 
       cmd_duration = {

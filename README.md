@@ -67,3 +67,17 @@ https://jonas.github.io/tig/doc/manual.html
 ## Nix Garbage Collection
 
 `nix-collect-garbage -d`
+
+## Nix Info
+
+```sh
+nix-shell -p nix-info --run "nix-info -m"
+ - system: `"aarch64-darwin"`
+ - host os: `Darwin 22.4.0, macOS 13.3`
+ - multi-user?: `yes`
+ - sandbox: `no`
+ - version: `nix-env (Nix) 2.11.0`
+ - channels(amitu): `""`
+ - channels(root): `"nixpkgs"`
+ - nixpkgs: `/nix/var/nix/profiles/per-user/root/channels/nixpkgs`
+```
