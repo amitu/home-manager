@@ -29,7 +29,7 @@ in {
     nixfmt
     tig
     tokei
-    youtube-dl
+    # youtube-dl -> does not work on my machine!
     zellij
     difftastic
     # Set Terminal.app Font to Fira etc: especially for starship special prompts
