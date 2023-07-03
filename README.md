@@ -80,6 +80,10 @@ And reboot.
 Then locate the volume in Disk Utility, and mount it. Looks like we have to do
 this on every reboot.
 
+https://github.com/NixOS/nix/issues/3616
+https://github.com/NixOS/nix/issues/6839
+https://gist.github.com/meeech/0b97a86f235d10bc4e2a1116eec38e7e
+
 ## `z`
 
 Use `z <pattern>` to cd into folders ("zip around"). `zi <pattern>` to run

@@ -134,13 +134,14 @@ in {
     };
     initExtra = ''
       . "$HOME/.cargo/env"
+      eval $(thefuck --alias)
       export WASMTIME_HOME="$HOME/.wasmtime"
-      export PATH="$WASMTIME_HOME/bin:$PATH:$HOME/bin"
+      export PATH="$WASMTIME_HOME/bin:$PATH:$HOME/bin:$HOME/.nix-profile/bin"
       export PATH=$PATH:"/Applications/Sublime Text.app/Contents/SharedSupport/bin"
     '';
     oh-my-zsh = {
       enable = true;
-      plugins = [ "git" "thefuck" "rust" ];
+      plugins = [ "git" "rust" ];
       theme = "robbyrussell";
     };
   };
