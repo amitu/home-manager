@@ -20,7 +20,7 @@ in {
 
   home.packages = with pkgs; [
     bottom
-    thefuck
+    vscode
     ripgrep
     # devbox : Decided not to use it
     bat
@@ -28,7 +28,9 @@ in {
     postgresql
     nixfmt
     tig
+    brotli
     tokei
+    heroku
     # youtube-dl -> does not work on my machine!
     zellij
     difftastic
@@ -89,6 +91,7 @@ in {
       push.autoSetupRemote = true;
       init.defaultBranch = "main";
       pull.rebase = true;
+      # use `git diff --no-ext-diff` if you want default output
       diff.external = "difft";
       url = {
         "git@github.com:" = {
@@ -128,13 +131,15 @@ in {
     shellAliases = {
       cat = "bat";
       f = "fuck";
+      nix-gc = "nix-collect-garbage -d";
       hm = "home-manager switch && exec zsh";
       zhm = "z ~/.config/home-manager";
+
       hmu = "nix-channel --update && home-manager switch && exec zsh";
     };
     initExtra = ''
       . "$HOME/.cargo/env"
-      eval $(thefuck --alias)
+      # eval $(thefuck --alias)
       export WASMTIME_HOME="$HOME/.wasmtime"
       export PATH="$WASMTIME_HOME/bin:$PATH:$HOME/bin:$HOME/.nix-profile/bin"
       export PATH=$PATH:"/Applications/Sublime Text.app/Contents/SharedSupport/bin"
